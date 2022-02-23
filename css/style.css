@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 50%, rgba(0,224,255,1) 100%);
+}
+
+#divContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#videoPlayer{
+    border: 1px solid black;
+}
+
+.containerButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn{
+    width: fit-content;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border-width: 0px;
+    margin: 20px 10px 0px 10px;
+    font-family: 'Century Gothic';
+}
+
+
+
+.btn:hover{
+    transform: scale(1.1);
+    background-color: gray;
+    color: white;
+}
+
+h1{
+    margin-top: 20px;
+    font-family: 'Century Gothic';
+}
