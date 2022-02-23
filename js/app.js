@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
     let container = document.getElementById('divContainer');
     let containerButtons = document.createElement('div');
+    let videoPlayer = document.getElementById('videoPlayer');
 
     let btnSkip = document.createElement('button');
     let btnPlayPause = document.createElement('button');
@@ -19,12 +20,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
     btnBack.classList.add('btn', 'back');
     btnStop.classList.add('btn', 'stop');
 
-
-  
-
-    containerButtons.append(btnSkip);
-    containerButtons.append(btnPlayPause);
     containerButtons.append(btnBack);
+    containerButtons.append(btnPlayPause);
+    containerButtons.append(btnSkip);
     containerButtons.append(btnStop);
     container.append(containerButtons);
 
@@ -34,17 +32,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
     btnStop.addEventListener('click', stopVideo);
 
     function skipTwoSeconds(){
-        let videoPlayer = document.getElementById('videoPlayer');
         videoPlayer.currentTime += 2;
     }
 
     function backTwoSeconds(){
-        let videoPlayer = document.getElementById('videoPlayer');
         videoPlayer.currentTime -= 2;
     }
 
     function playPauseVideo(){
-        let videoPlayer = document.getElementById('videoPlayer');
         if(videoPlayer.paused){
             videoPlayer.play();
             btnPlayPause.textContent = "Pause";
@@ -55,18 +50,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
     function stopVideo(){
-        let videoPlayer = document.getElementById('videoPlayer');
         videoPlayer.currentTime = 0;
         videoPlayer.pause();
         btnPlayPause.textContent = "Play";
     }
 
-    function setIcon(){
-        let videoPlayer = document.getElementById('videoPlayer');
-        if(videoPlayer.paused){
-            btnPlayPause.innerHTML = '<i class="bi bi-play-fill"></i> Play';
+    setInterval(()=>{
+        if(videoPlayer.currentTime == videoPlayer.duration){
+            btnPlayPause.textContent = "Play";
         }
-    }
+    },100);
     
 });
     
